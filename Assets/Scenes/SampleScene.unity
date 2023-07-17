@@ -1099,7 +1099,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645506477}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: f476fd0d72487b342a93a9790ee01df0, type: 3}
   m_Controller: {fileID: 9100000, guid: 967fc27a922508e4480c7e2052ab6a1e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -1530,7 +1530,7 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: 20
   lerpSpeed: 7
-  anim: {fileID: 0}
+  anim: {fileID: 1645506478}
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &6753465340806224522
 GameObject:
