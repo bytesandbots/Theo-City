@@ -6,7 +6,9 @@ using UnityEngine;
 public class vendingmachinetravel1 : MonoBehaviour
 {
     bool interact;
-    public Transform teleportlocation;
+    public GameObject coinpicture;
+    public GameObject bucket;
+    public GameObject bucketpicture;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,9 @@ public class vendingmachinetravel1 : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                GameObject.FindGameObjectWithTag("Player").transform.position = teleportlocation.position;
+             bucket.SetActive(true);
+                bucketpicture.SetActive(true);
+                coinpicture.SetActive(false);
             }
         }  
     }
