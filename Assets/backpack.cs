@@ -9,6 +9,8 @@ public class backpack : MonoBehaviour
     GameObject toopickup;
     public GameObject inventory;
     public Image coinimage;
+    public GameObject wata;
+    public bool wata2;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,10 @@ public class backpack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (wata2 == true)
+        {
+            wata.SetActive(true);
+        }
         if (Input.GetKey(KeyCode.Tab))
         {
             inventory.SetActive(true);
@@ -46,6 +52,11 @@ public class backpack : MonoBehaviour
             pickup = true;
             toopickup = other.gameObject;
         }
+
+        if (other.CompareTag("well"))
+        {
+            wata2 = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -53,7 +64,12 @@ public class backpack : MonoBehaviour
         {
             pickup = false;
             toopickup = null;
-        } 
-           
+        }
+        if (other.CompareTag("well"))
+        {
+            wata2 = false;
+        }
+
+
     }
 }
