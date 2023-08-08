@@ -13,6 +13,7 @@ public class backpack : MonoBehaviour
     public bool wata2;
     public Image bucketimage;
     public Sprite watabucketfull;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,10 @@ public class backpack : MonoBehaviour
         if (wata2 == true)
         {
             wata.SetActive(true);
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                anim.SetTrigger("drink");
+            }
             bucketimage.sprite = watabucketfull;
         }
         if (Input.GetKey(KeyCode.Tab))
