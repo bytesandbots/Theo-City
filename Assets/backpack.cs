@@ -13,23 +13,41 @@ public class backpack : MonoBehaviour
     public bool wata2;
     public Image bucketimage;
     public Sprite watabucketfull;
+    public Sprite watabucketempty;
     public Animator anim;
+    public bool hasWater;
+    public GameObject bucket;
+
     // Start is called before the first frame update
     void Start()
     {
         inventory.SetActive(false);
     }
+    IEnumerator DrinkWater() {
 
+        yield return new WaitForSeconds(6);
+        wata.SetActive(false);
+        bucketimage.sprite = watabucketempty;
+    }
     // Update is called once per frame
     void Update()
     {
+        if (hasWater) {
+            
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                bucket.transform.localPosition = new Vector3(-0.117f, 0.278f, - 0.016f);
+                bucket.transform.localEulerAngles = new Vector3(-206.779f, 181.361f, 92.403f);
+                hasWater = false;
+                anim.SetTrigger("drink");
+
+                StartCoroutine(DrinkWater());
+            }
+        }
         if (wata2 == true)
         {
             wata.SetActive(true);
-            if (Input.GetKeyUp(KeyCode.R))
-            {
-                anim.SetTrigger("drink");
-            }
+            hasWater = true; 
             bucketimage.sprite = watabucketfull;
         }
         if (Input.GetKey(KeyCode.Tab))

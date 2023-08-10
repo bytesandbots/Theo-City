@@ -5118,7 +5118,10 @@ MonoBehaviour:
   wata2: 0
   bucketimage: {fileID: 1941088381}
   watabucketfull: {fileID: 21300000, guid: 7e7230c97f0a51e4894696a13c7378e2, type: 3}
+  watabucketempty: {fileID: 21300000, guid: f913af2c81b245f4db15073344c2fa81, type: 3}
   anim: {fileID: 1645506478}
+  hasWater: 0
+  bucket: {fileID: 1173923106}
 --- !u!81 &6753465341264558376
 AudioListener:
   m_ObjectHideFlags: 0
