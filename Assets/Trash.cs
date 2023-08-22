@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Trash : MonoBehaviour
+
 {
+    public Image bucketimage; 
     public GameObject bucket;
     public bool dump;
     // Start is called before the first frame update
@@ -20,6 +23,7 @@ public class Trash : MonoBehaviour
             if (dump)
             {
                 bucket.SetActive(false);
+                bucketimage.sprite = null;
             }
         }
     }

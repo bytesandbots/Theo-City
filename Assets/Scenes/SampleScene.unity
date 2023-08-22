@@ -4187,6 +4187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b18315b86cc4b4fb4d9a51edd79a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bucketimage: {fileID: 1941088381}
   bucket: {fileID: 1173923106}
   dump: 0
 --- !u!135 &1887406388
