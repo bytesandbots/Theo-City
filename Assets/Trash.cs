@@ -34,4 +34,11 @@ public class Trash : MonoBehaviour
             dump = true;
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            dump = false;
+        }
+    }
 }
