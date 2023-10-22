@@ -6,9 +6,14 @@ using UnityEngine.UI;
 public class Trash : MonoBehaviour
 
 {
+    public GameObject player;
     public Image bucketimage; 
     public GameObject bucket;
     public bool dump;
+    public float x = 137.7f;
+    public float y = -47.745f;
+    public float z = 398.42f;
+    bool hasDrank = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +25,16 @@ public class Trash : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (dump)
+            if(dump)
             {
+                player.position = new Vector3(x, y, x);
                 bucket.SetActive(false);
                 bucketimage.sprite = null;
+              
+
             }
         }
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -41,4 +50,5 @@ public class Trash : MonoBehaviour
             dump = false;
         }
     }
+
 }
