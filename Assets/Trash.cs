@@ -14,6 +14,7 @@ public class Trash : MonoBehaviour
     public float y = -47.745f;
     public float z = 398.42f;
     bool hasDrank = false;
+    public Transform teleporting;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +28,11 @@ public class Trash : MonoBehaviour
         {
             if(dump)
             {
-                player.position = new Vector3(x, y, x);
+                player.GetComponent<CharacterController>().enabled = false;
+                player.transform.position = teleporting.position;
                 bucket.SetActive(false);
                 bucketimage.sprite = null;
-              
+                player.GetComponent<CharacterController>().enabled = true;
 
             }
         }
