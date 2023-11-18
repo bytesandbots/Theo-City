@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class backpack : MonoBehaviour
 {
     List<GameObject> Backpack = new List<GameObject>();
-    bool pickup;
-    GameObject toopickup;
+    public bool coinpickup;
+    GameObject Coin_toopickup;
     public GameObject inventory;
     public Image coinimage;
     public GameObject wata;
@@ -17,6 +17,7 @@ public class backpack : MonoBehaviour
     public Animator anim;
     public bool hasWater;
     public GameObject bucket;
+    public Trash trashScript;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,7 @@ public class backpack : MonoBehaviour
                 bucket.transform.localEulerAngles = new Vector3(-206.779f, 181.361f, 92.403f);
                 hasWater = false;
                 anim.SetTrigger("drink");
-
+                trashScript.hasDrank = true;
                 StartCoroutine(DrinkWater());
             }
         }
@@ -58,13 +59,13 @@ public class backpack : MonoBehaviour
         {
             inventory.SetActive(false);
         }
-        if (pickup)
+        if (coinpickup)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Backpack.Add(toopickup);
-                toopickup.SetActive(false);
-                if (toopickup.name == "coin")
+                Backpack.Add(Coin_toopickup);
+                Coin_toopickup.SetActive(false);
+                if (Coin_toopickup.name == "coin")
                 {
                     coinimage.enabled = true;
                 }
@@ -73,10 +74,10 @@ public class backpack : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("enemy"))
+        if (other.CompareTag("coin"))
         {
-            pickup = true;
-            toopickup = other.gameObject;
+            coinpickup = true;
+            Coin_toopickup = other.gameObject;
         }
 
         if (other.CompareTag("well"))
@@ -86,10 +87,10 @@ public class backpack : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("enemy"))
+        if (other.CompareTag("coin"))
         {
-            pickup = false;
-            toopickup = null;
+            coinpickup = false;
+            Coin_toopickup = null;
         }
         if (other.CompareTag("well"))
         {

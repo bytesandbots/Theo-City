@@ -9,11 +9,12 @@ public class Trash : MonoBehaviour
     public GameObject player;
     public Image bucketimage; 
     public GameObject bucket;
-    public bool dump;
+    public bool dump = false;
     public float x = 137.7f;
     public float y = -47.745f;
     public float z = 398.42f;
-    bool hasDrank = false;
+    public bool hasDrank = false;
+    public Transform teleportLocation;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,19 +24,21 @@ public class Trash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if(dump)
+            if (dump == true && hasDrank == true)
             {
-                player.position = new Vector3(x, y, x);
+                player.GetComponent<CharacterController>().enabled = false;
+                player.transform.position = teleportLocation.position;
                 bucket.SetActive(false);
                 bucketimage.sprite = null;
-              
-
+                player.GetComponent<CharacterController>().enabled = true;
             }
-        }
 
+        }
     }
+
+ 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -47,8 +50,10 @@ public class Trash : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            dump = false;
+            dump = true;
         }
     }
+    
+
 
 }
