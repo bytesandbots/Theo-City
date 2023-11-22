@@ -28698,6 +28698,7 @@ MonoBehaviour:
   x: 137.7
   y: -47.745
   z: 398.42
+  hasDrank: 0
   teleporting: {fileID: 810527412}
 --- !u!135 &1887406388
 SphereCollider:
@@ -32815,7 +32816,7 @@ GameObject:
   - component: {fileID: 6313363866604029727}
   m_Layer: 0
   m_Name: coin
-  m_TagString: Untagged
+  m_TagString: coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32967,7 +32968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   runSpeed: 10
-  jumpSpeed: 8
+  jumpSpeed: 20
   gravity: 20
   lerpSpeed: 7
   anim: {fileID: 1645506478}
@@ -33035,6 +33036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ecb6604bfa65b64d9a2c13ef6c7ece9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinpickup: 0
   inventory: {fileID: 2144637289}
   coinimage: {fileID: 1034422988}
   wata: {fileID: 322001142}
@@ -33045,6 +33047,9 @@ MonoBehaviour:
   anim: {fileID: 1645506478}
   hasWater: 0
   bucket: {fileID: 1173923106}
+  trashScript: {fileID: 1887406387}
+  gotCoin: 0
+  gotBucket: 0
 --- !u!81 &6753465341264558376
 AudioListener:
   m_ObjectHideFlags: 0

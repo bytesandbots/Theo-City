@@ -18,6 +18,8 @@ public class backpack : MonoBehaviour
     public bool hasWater;
     public GameObject bucket;
     public Trash trashScript;
+    public bool gotCoin;
+    public bool gotBucket;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +70,7 @@ public class backpack : MonoBehaviour
                 if (Coin_toopickup.name == "coin")
                 {
                     coinimage.enabled = true;
+                    gotCoin = true;
                 }
             }
         }
@@ -80,7 +83,7 @@ public class backpack : MonoBehaviour
             Coin_toopickup = other.gameObject;
         }
 
-        if (other.CompareTag("well"))
+        if (other.CompareTag("well") && gotBucket)
         {
             wata2 = true;
         }

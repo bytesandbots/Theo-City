@@ -32,7 +32,12 @@ public class vendingmachinetravel1 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            interact = true;
+            if (other.gameObject.GetComponent<backpack>().gotCoin == true) {
+                interact = true;
+                other.gameObject.GetComponent<backpack>().gotBucket = true;
+            }
+
+            
         }  
     }
     private void OnTriggerExit(Collider other)
