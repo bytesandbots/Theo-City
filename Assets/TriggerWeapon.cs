@@ -4,7 +4,7 @@ public class TriggerWeapon : MonoBehaviour
 {
     public bool ReadyToPickUp;
     public Transform Holder;
-    
+    private shoot shoot;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,9 @@ public class TriggerWeapon : MonoBehaviour
                 GetComponent<BoxCollider>().enabled = false;
                 GetComponent<Rigidbody>().isKinematic = true;
                 gameObject.layer = LayerMask.NameToLayer("Player");
+                shoot = GetComponent<shoot>();
                 ReadyToPickUp = false;
+                shoot.enabled = false;
             }
         }
     }
@@ -32,6 +34,7 @@ public class TriggerWeapon : MonoBehaviour
     {
         if (other.CompareTag("Player")) {
             ReadyToPickUp = true;
+         
         }
     }
     private void OnTriggerExit(Collider other)
@@ -40,5 +43,6 @@ public class TriggerWeapon : MonoBehaviour
         {
             ReadyToPickUp = false;
         }
+     
     }
 }
