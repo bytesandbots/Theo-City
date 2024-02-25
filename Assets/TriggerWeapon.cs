@@ -5,10 +5,11 @@ public class TriggerWeapon : MonoBehaviour
     public bool ReadyToPickUp;
     public Transform Holder;
     private shoot shoot;
+    public GameObject Gun;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Gun.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,7 +26,13 @@ public class TriggerWeapon : MonoBehaviour
                 gameObject.layer = LayerMask.NameToLayer("Player");
                 shoot = GetComponent<shoot>();
                 ReadyToPickUp = false;
-                shoot.enabled = false;
+                if(shoot != null)
+                {
+                    shoot.enabled = false;
+
+                }
+                
+                Gun.SetActive(true);
             }
         }
     }
