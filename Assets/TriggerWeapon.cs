@@ -6,6 +6,7 @@ public class TriggerWeapon : MonoBehaviour
     public Transform Holder;
     private shoot shoot;
     public GameObject Gun;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -24,15 +25,15 @@ public class TriggerWeapon : MonoBehaviour
                 GetComponent<BoxCollider>().enabled = false;
                 GetComponent<Rigidbody>().isKinematic = true;
                 gameObject.layer = LayerMask.NameToLayer("Player");
-                shoot = GetComponent<shoot>();
+                shoot = Holder.GetComponentInParent<shoot>();
                 ReadyToPickUp = false;
                 if(shoot != null)
                 {
-                    shoot.enabled = false;
+                    shoot.enabled = true;
 
                 }
                 
-                Gun.SetActive(true);
+                Gun.SetActive(false);
             }
         }
     }

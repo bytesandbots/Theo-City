@@ -8,6 +8,11 @@ public class shoot : MonoBehaviour
     public GameObject bulletPrefabs;
     public Transform bulletFiredPos;
     public float bulletspeed = 100.0f;
+    public Animator pistolanimation;
+    private void Start()
+    {
+        pistolanimation.SetBool("gun",true);
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

@@ -38120,14 +38120,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6753465340806224522}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb579a46bb7f8164796a40411f388c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefabs: {fileID: 8075190276088720524, guid: d7cba1e69e6423245bfa66e05a23623c, type: 3}
   bulletFiredPos: {fileID: 1447866497}
-  bulletspeed: 10
+  bulletspeed: 25
+  pistolanimation: {fileID: 1645506478}
 --- !u!81 &6753465341264558376
 AudioListener:
   m_ObjectHideFlags: 0
